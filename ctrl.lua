@@ -4,33 +4,21 @@ if not game:IsLoaded() then
     until game:IsLoaded()
 end
 
-local Services = {
-    ["RP"] = game:GetService("ReplicatedStorage"),
-    ["Players"] = game:GetService("Players")
-}
-
-local Variables = {
-    HostUser = getgenv().HostUser,
-    Player = game.Players.LocalPlayer
-}
-
 local function AirLock(Type)
-    local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+    local BP = game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("AirLockBP")
     if BP then
         BP:Destroy()
     end
-    CmdSettings["AirLock"] = true
-    Variables["Player"].Character.HumanoidRootPart.CFrame = Variables["Player"].Character.HumanoidRootPart.CFrame *
-                                                                CFrame.new(0, 10, 0)
-    local BP = Instance.new("BodyPosition", Variables["Player"].Character.HumanoidRootPart)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
+    local BP = Instance.new("BodyPosition", game.Players.LocalPlayer.Character.HumanoidRootPart)
     BP.Name = "AirLockBP"
     BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-    BP.Position = Variables["Player"].Character.HumanoidRootPart.Position
-    local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+    BP.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    local BP = game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("AirLockBP")
     if BP then
         BP:Destroy()
     end
-
 end
 
 local vu = game:GetService("VirtualUser")
@@ -54,12 +42,6 @@ if game.PlaceId == 2788229376 then
 
     local Players = game:GetService('Players')
 
-    if not game:IsLoaded() then
-        repeat
-            wait()
-        until game:IsLoaded()
-    end
-
     Players.PlayerAdded:Connect(function(player)
         game.StarterGui:SetCore("SendNotification", {
             Title = "Someone joined!",
@@ -71,17 +53,9 @@ if game.PlaceId == 2788229376 then
     local function PlayerAdded(Player)
         local function Chatted(Message)
             local plr = game.Players.LocalPlayer
-            local character = plr.Character or plr.CharacterAdded:Wait()
-            local humanoid = character:FindFirstChild("Humanoid")
-            local PlayerHumanoid = plr.Character:WaitForChild("Humanoid")
-            local targetHumanoid = Player.Character:WaitForChild("Humanoid")
-            local LastTargetPosition = targetHumanoid.RootPart.CFrame
-            local Length = 3
 
             if Player.UserId == getgenv().controller then
-
                 local finalMsg = Message:lower()
-
                 for i, v in pairs(getgenv().alts) do
                     if v == plr.UserId then
 

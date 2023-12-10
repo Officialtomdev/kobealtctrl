@@ -4,17 +4,15 @@ if not game:IsLoaded() then
     until game:IsLoaded()
 end
 
-
 local Services = {
-	["RP"] = game:GetService("ReplicatedStorage"),
-	["Players"] = game:GetService("Players"),
+    ["RP"] = game:GetService("ReplicatedStorage"),
+    ["Players"] = game:GetService("Players")
 }
 
 local Variables = {
-	HostUser = getgenv().HostUser,
-	Player = game.Players.LocalPlayer,
+    HostUser = getgenv().HostUser,
+    Player = game.Players.LocalPlayer
 }
-
 
 local function AirLock(Type)
     local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
@@ -22,7 +20,8 @@ local function AirLock(Type)
         BP:Destroy()
     end
     CmdSettings["AirLock"] = true
-    Variables["Player"].Character.HumanoidRootPart.CFrame = Variables["Player"].Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
+    Variables["Player"].Character.HumanoidRootPart.CFrame = Variables["Player"].Character.HumanoidRootPart.CFrame *
+                                                                CFrame.new(0, 10, 0)
     local BP = Instance.new("BodyPosition", Variables["Player"].Character.HumanoidRootPart)
     BP.Name = "AirLockBP"
     BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
@@ -60,8 +59,6 @@ if game.PlaceId == 2788229376 then
             wait()
         until game:IsLoaded()
     end
-
-
 
     Players.PlayerAdded:Connect(function(player)
         game.StarterGui:SetCore("SendNotification", {
@@ -428,10 +425,8 @@ if game.PlaceId == 2788229376 then
                                 if getgenv.airlock == true then
                                     AirLock(true)
                                 end
-
                             end
                         else
-
                             getgenv.airlock = false
                             if getgenv.airlock == false then
                                 Airlock(false)

@@ -4,26 +4,34 @@ if not game:IsLoaded() then
     until game:IsLoaded()
 end
 
+
+local Services = {
+	["RP"] = game:GetService("ReplicatedStorage"),
+	["Players"] = game:GetService("Players"),
+}
+
+local Variables = {
+	HostUser = getgenv().HostUser,
+	Player = game.Players.LocalPlayer,
+}
+
+
 local function AirLock(Type)
-    if CmdSettings["AirLock"] == nil and Type == true then
-        local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
-        if BP then
-            BP:Destroy()
-        end
-        CmdSettings["AirLock"] = true
-        Variables["Player"].Character.HumanoidRootPart.CFrame =
-            Variables["Player"].Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
-        local BP = Instance.new("BodyPosition", Variables["Player"].Character.HumanoidRootPart)
-        BP.Name = "AirLockBP"
-        BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-        BP.Position = Variables["Player"].Character.HumanoidRootPart.Position
-    elseif CmdSettings["AirLock"] == true and Type == false then
-        CmdSettings["AirLock"] = nil
-        local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
-        if BP then
-            BP:Destroy()
-        end
+    local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+    if BP then
+        BP:Destroy()
     end
+    CmdSettings["AirLock"] = true
+    Variables["Player"].Character.HumanoidRootPart.CFrame = Variables["Player"].Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
+    local BP = Instance.new("BodyPosition", Variables["Player"].Character.HumanoidRootPart)
+    BP.Name = "AirLockBP"
+    BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    BP.Position = Variables["Player"].Character.HumanoidRootPart.Position
+    local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+    if BP then
+        BP:Destroy()
+    end
+
 end
 
 local vu = game:GetService("VirtualUser")
@@ -53,64 +61,8 @@ if game.PlaceId == 2788229376 then
         until game:IsLoaded()
     end
 
-    game:GetService("UserInputService").InputBegan:connect(function(input, GPE)
-        if GPE then
-            return
-        end
-        for i, e in pairs(buttons) do
-            if i ~= "Moving" and input.KeyCode == Enum.KeyCode[i] then
-                buttons[i] = true
-                buttons.Moving = true
-            end
-        end
-    end)
 
-    game:GetService("UserInputService").InputEnded:connect(function(input, GPE)
-        if GPE then
-            return
-        end
-        local a = false
-        for i, e in pairs(buttons) do
-            if i ~= "Moving" then
-                if input.KeyCode == Enum.KeyCode[i] then
-                    buttons[i] = false
-                end
-                if buttons[i] then
-                    a = true
-                end
-            end
-        end
-        buttons.Moving = a
-    end)
 
-    local setVec = function(vec)
-        return vec * (speed / vec.Magnitude)
-    end
-
-    game:GetService("RunService").Heartbeat:connect(function(step)
-        if flying and c and c.PrimaryPart then
-            local p = c.PrimaryPart.Position
-            local cf = cam.CFrame
-            local ax, ay, az = cf:toEulerAnglesXYZ()
-            c:SetPrimaryPartCFrame(CFrame.new(p.x, p.y, p.z) * CFrame.Angles(ax, ay, az))
-            if buttons.Moving then
-                local t = Vector3.new()
-                if buttons.W then
-                    t = t + (setVec(cf.lookVector))
-                end
-                if buttons.S then
-                    t = t - (setVec(cf.lookVector))
-                end
-                if buttons.A then
-                    t = t - (setVec(cf.rightVector))
-                end
-                if buttons.D then
-                    t = t + (setVec(cf.rightVector))
-                end
-                c:TranslateBy(t * step)
-            end
-        end
-    end)
     Players.PlayerAdded:Connect(function(player)
         game.StarterGui:SetCore("SendNotification", {
             Title = "Someone joined!",

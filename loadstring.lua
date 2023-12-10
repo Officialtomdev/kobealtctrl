@@ -9,4 +9,4 @@ getgenv().alts = { -- max 38
 
 -- loader
 
-loadstring(game:HttpGet("", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Officialtomdev/kobealtctrl/main/ctrl.lua", true))()

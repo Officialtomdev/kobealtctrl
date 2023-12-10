@@ -28,7 +28,7 @@ __namecall = hookmetamethod(game, "__namecall", function(...)
 	local caller = getcallingscript()
 
 	-- // See if the game is trying to alert the server
-	if (method == "FireServer" and self == MainEvent and tablefind(Flags, args[2])) then
+	if (method == "FireServer" and self == ReplicatedStorage.MainEvent and tablefind(Flags, args[2])) then
 		return
 	end
 
@@ -800,7 +800,6 @@ if game.PlaceId == 2788229376 then
 
             -- Properties:
 
-            PSiwshuwDUItgsuiz.Name = "lol"
             PSiwshuwDUItgsuiz.Parent = game.CoreGui
             PSiwshuwDUItgsuiz.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
             PSiwshuwDUItgsuiz.IgnoreGuiInset = true

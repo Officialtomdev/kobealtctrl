@@ -48,6 +48,7 @@ if game.PlaceId == 2788229376 then
             Text = player.name .. " joined the game.",
             Duration = 5
         })
+        print("someone joined the game")
     end)
 
     local function PlayerAdded(Player)

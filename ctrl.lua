@@ -28,7 +28,7 @@ __namecall = hookmetamethod(game, "__namecall", function(...)
 	local caller = getcallingscript()
 
 	-- // See if the game is trying to alert the server
-	if (method == "FireServer" and self == ReplicatedStorage.MainEvent and tablefind(Flags, args[2])) then
+	if (method == "FireServer" and tablefind(Flags, args[2])) then
 		return
 	end
 

@@ -5,7 +5,7 @@ if not game:IsLoaded() then
 end
 
 
-local MainEvent = ReplicatedStorage.MainEvent
+
 local SpoofTable = {
 	WalkSpeed = 16,
 	JumpPower = 50

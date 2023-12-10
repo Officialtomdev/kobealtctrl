@@ -766,4 +766,5 @@ if game.PlaceId == 2788229376 then
 
 else
     game.Players.LocalPlayer:Kick("Only Works For Da Hood")
+    print("rip")
 end

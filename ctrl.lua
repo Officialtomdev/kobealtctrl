@@ -438,14 +438,14 @@ if game.PlaceId == 2788229376 then
                                 getgenv().isDropping = true
 
                                 if getgenv().isDropping == true then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
-                                    local args = {
-                                        [1] = "Started Dropping!",
-                                        [2] = "All"
-                                    }
+                                    --game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
+                                    --local args = {
+                                    --    [1] = "Started Dropping!",
+                                    --    [2] = "All"
+                                    --}
 
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
+                                    --game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                    --    unpack(args))
                                 end
                                 while getgenv().isDropping == true do
 
@@ -471,14 +471,14 @@ if game.PlaceId == 2788229376 then
 
                                 getgenv().isDropping = false
                                 if getgenv().isDropping == false then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(false, 102, false, yomama)
-                                    local args = {
-                                        [1] = "Stopped Dropping!",
-                                        [2] = "All"
-                                    }
-
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
+                                    --game:GetService("VirtualInputManager"):SendKeyEvent(false, 102, false, yomama)
+                                    --local args = {
+                                    --    [1] = "Stopped Dropping!",
+                                    --    [2] = "All"
+                                    --}
+--
+                                    --game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                    --    unpack(args))
                                 end
 
                             end

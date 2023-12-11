@@ -427,7 +427,7 @@ if game.PlaceId == 2788229376 then
                                     end
                                 end
 
-                                putinair(true)
+                               -- putinair(true)
                             end
                         end
 

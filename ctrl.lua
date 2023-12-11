@@ -1,3 +1,38 @@
+local CmdSettings = {}
+
+
+local Connections = {}
+
+local Services = {
+	["Players"] = game:GetService("Players")
+}
+
+local Variables = {
+	Player = game.Players.LocalPlayer
+}
+
+local function AirLock(Type)
+	if CmdSettings["AirLock"] == nil and Type == true then
+		local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+		if BP then
+			BP:Destroy()
+		end
+		CmdSettings["AirLock"] = true
+		Variables["Player"].Character.HumanoidRootPart.CFrame = Variables["Player"].Character.HumanoidRootPart.CFrame*CFrame.new(0,10,0)
+		local BP = Instance.new("BodyPosition",Variables["Player"].Character.HumanoidRootPart)
+		BP.Name = "AirLockBP"
+		BP.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+		BP.Position = Variables["Player"].Character.HumanoidRootPart.Position
+	elseif CmdSettings["AirLock"] == true and Type == false then
+		CmdSettings["AirLock"] = nil
+		local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+		if BP then
+			BP:Destroy()
+		end
+	end
+end
+
+
 if not game:IsLoaded() then
     repeat
         wait()
@@ -454,22 +489,18 @@ if game.PlaceId == 2788229376 then
 
                             end
 
-                        end
 
-                        if finalMsg == getgenv().prefix .. "airlock" then
+                           if finalMsg == getgenv().prefix .. "airlock" then
+                               Airlock(true)
 
-                            if getgenv.airlock == false then
-                                getgenv().airlock = true
-                                if getgenv.airlock == true then
-                                    AirLock(true)
-                                end
-                            end
-                        else
-                            getgenv.airlock = false
-                            if getgenv.airlock == false then
+                           end
+
+                            if finalMsg == getgenv().prefix .. "stopairlock" then
                                 Airlock(false)
-                            end
+                             end
                         end
+
+               
                     end
                 end
 

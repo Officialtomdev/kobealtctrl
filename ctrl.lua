@@ -12,6 +12,13 @@ local Variables = {
 
 local function putinair(Type)
     if CmdSettings["AirLock"] == nil and Type == true then
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
         local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
         if BP then
             BP:Destroy()
@@ -24,6 +31,12 @@ local function putinair(Type)
         BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
         BP.Position = Variables["Player"].Character.HumanoidRootPart.Position
     elseif CmdSettings["AirLock"] == true and Type == false then
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
         CmdSettings["AirLock"] = nil
         local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
         if BP then

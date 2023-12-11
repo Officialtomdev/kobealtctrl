@@ -1,3 +1,64 @@
+local CmdSettings = {}
+
+function sendNotif(title, text)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = title,
+        Text = text,
+        Duration = 5
+    })
+end
+
+function dropMoney()
+    game:GetService("ReplicatedStorage").MainEvent:FireServer("DropMoney", "10000")
+    sendNotif("Money dropped!", "$ 1000 dropped!")
+
+end
+
+local Connections = {}
+
+local Services = {
+    ["Players"] = game:GetService("Players")
+}
+
+local Variables = {
+    Player = game.Players.LocalPlayer
+}
+
+local function putinair(Type)
+    if CmdSettings["AirLock"] == nil and Type == true then
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        print("pulling bro up")
+        local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+        if BP then
+            BP:Destroy()
+        end
+        CmdSettings["AirLock"] = true
+        Variables["Player"].Character.HumanoidRootPart.CFrame =
+            Variables["Player"].Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
+        local BP = Instance.new("BodyPosition", Variables["Player"].Character.HumanoidRootPart)
+        BP.Name = "AirLockBP"
+        BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+        BP.Position = Variables["Player"].Character.HumanoidRootPart.Position
+    elseif CmdSettings["AirLock"] == true and Type == false then
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
+        print("pulling bro down")
+        CmdSettings["AirLock"] = nil
+        local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
+        if BP then
+            BP:Destroy()
+        end
+    end
+end
+
 if not game:IsLoaded() then
     repeat
         wait()
@@ -67,23 +128,6 @@ __newindex = hookmetamethod(game, "__newindex", function(t, k, v)
     return __newindex(t, k, v)
 end)
 
-local function AirLock(Type)
-    local BP = game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("AirLockBP")
-    if BP then
-        BP:Destroy()
-    end
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
-    local BP = Instance.new("BodyPosition", game.Players.LocalPlayer.Character.HumanoidRootPart)
-    BP.Name = "AirLockBP"
-    BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-    BP.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-    local BP = game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("AirLockBP")
-    if BP then
-        BP:Destroy()
-    end
-end
-
 local vu = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
     vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
@@ -93,7 +137,6 @@ end)
 
 if game.PlaceId == 2788229376 then
     getgenv().isDropping = false
-    getgenv().airlock = false
     local speed = 50
     local c
     local h
@@ -114,7 +157,7 @@ if game.PlaceId == 2788229376 then
         print("someone joined the game")
     end)
 
-    local function PlayerAdded(Player)
+   -- local function PlayerAdded(Player)
         local function Chatted(Message)
             local plr = game.Players.LocalPlayer
 
@@ -129,96 +172,97 @@ if game.PlaceId == 2788229376 then
                             local controllerId = getgenv().controller -- Replace with the ID of the controller
                             local controller = game:GetService("Players"):GetPlayerByUserId(controllerId)
 
+                            
+
                             for i, v in pairs(getgenv().alts) do
                                 if i == "Alt1" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-389, 21, -338)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt2" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-385, 21, -338)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt3" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-380, 21, -337)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt4" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-376, 21, -338)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt5" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-370, 21, -338)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt6" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-366, 21, -338)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt7" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -338)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt8" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -333)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt9" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-365, 21, -334)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt10" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-370, 21, -334)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt11" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-375, 21, -334)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt12" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-381, 21, -334)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt13" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-386, 21, -334)
-                                        AirLock(true)
 
                                     end
                                 end
@@ -226,42 +270,41 @@ if game.PlaceId == 2788229376 then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -334)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt15" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -331)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt16" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-386, 21, -331)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt17" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-382, 21, -331)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt18" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-376, 21, -331)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt19" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-371, 21, -331)
-                                        AirLock(true)
 
                                     end
                                 end
@@ -269,126 +312,124 @@ if game.PlaceId == 2788229376 then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-366, 21, -331)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt21" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -331)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt22" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -327)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt23" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-365, 21, -327)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt24" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-371, 21, -326)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt25" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-376, 21, -327)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt26" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-381, 21, -326)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt27" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-385, 21, -327)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt28" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -323)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt29" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -326)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt30" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -323)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt31" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-385, 21, -323)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt32" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-381, 21, -323)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt33" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-375, 21, -324)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt34" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-370, 21, -323)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt35" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-365, 21, -324)
-                                        AirLock(true)
+
                                     end
                                 end
                                 if i == "Alt36" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-360, 21, -324)
-                                        AirLock(true)
                                     end
                                 end
                                 if i == "Alt37" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-359, 21, -318)
-                                        AirLock(true)
                                     end
                                 end
                                 if i == "Alt38" then
@@ -396,55 +437,34 @@ if game.PlaceId == 2788229376 then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-364, 21, -319)
 
-                                        AirLock(true)
                                     end
                                 end
+
+                                -- putinair(true)
                             end
                         end
 
-                        if finalMsg == getgenv().prefix .. "drop" then
+                    elseif finalMsg == getgenv().prefix .. "drop" then
 
-                            if getgenv().isDropping == false then
+                        if getgenv().isDropping == false then
 
-                                getgenv().isDropping = true
+                            getgenv().isDropping = true
 
-                                if getgenv().isDropping == true then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
+                            if getgenv().isDropping == true then
+                                -- game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
+                                -- local args = {
+                                --    [1] = "Started Dropping!",
+                                --    [2] = "All"
+                                -- }
+
+                                -- game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                --    unpack(args))
+                            end
+                            while getgenv().isDropping == true do
+
+                                if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
                                     local args = {
-                                        [1] = "Started Dropping!",
-                                        [2] = "All"
-                                    }
-
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
-                                end
-                                while getgenv().isDropping == true do
-
-                                    if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
-                                        local args = {
-                                            [1] = "Ran out of money, stopped dropping.",
-                                            [2] = "All"
-                                        }
-
-                                        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
-                                            .SayMessageRequest:FireServer(unpack(args))
-                                    end
-
-                                    local args = {
-                                        [1] = "DropMoney",
-                                        [2] = "10000"
-                                    }
-
-                                    game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
-                                    wait(15)
-                                end
-                            else
-
-                                getgenv().isDropping = false
-                                if getgenv().isDropping == false then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(false, 102, false, yomama)
-                                    local args = {
-                                        [1] = "Stopped Dropping!",
+                                        [1] = "Ran out of money, stopped dropping.",
                                         [2] = "All"
                                     }
 
@@ -452,31 +472,51 @@ if game.PlaceId == 2788229376 then
                                         unpack(args))
                                 end
 
-                            end
+                                -- local args = {
+                                --     [1] = "DropMoney",
+                                --     [2] = "10000"
+                                -- }
+                                --
+                                -- game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+                                -- wait(15)
 
-                        end
-
-                        if finalMsg == getgenv().prefix .. "airlock" then
-
-                            if getgenv.airlock == false then
-                                getgenv().airlock = true
-                                if getgenv.airlock == true then
-                                    AirLock(true)
-                                end
+                                dropMoney()
                             end
                         else
-                            getgenv.airlock = false
-                            if getgenv.airlock == false then
-                                Airlock(false)
+
+                            getgenv().isDropping = false
+                            if getgenv().isDropping == false then
+                                -- game:GetService("VirtualInputManager"):SendKeyEvent(false, 102, false, yomama)
+                                -- local args = {
+                                --    [1] = "Stopped Dropping!",
+                                --    [2] = "All"
+                                -- }
+                                --
+                                -- game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                --    unpack(args))
                             end
+
                         end
+
+                    elseif finalMsg == getgenv().prefix .. "air" then
+                        putinair(true)
+
+                    end
+
+                if finalMsg == getgenv().prefix .. "unair" then
+                        putinair(false)
                     end
                 end
 
             end
         end
         Player.Chatted:Connect(Chatted)
-    end
+
+   -- end
+
+    --Player.Chatted:Connect(Chatted)
+
+    
 
     local GetPlayers = Players:GetPlayers()
     for i = 1, #GetPlayers do

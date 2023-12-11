@@ -1,5 +1,25 @@
 local CmdSettings = {}
 
+
+
+
+
+
+
+function sendNotif(title, text)
+    game.StarterGui:SetCore("SendNotification", {
+         Title = title,
+         Text = text,
+         Duration = 5
+     }) 
+ end
+ 
+ function dropMoney()
+     game:GetService("ReplicatedStorage").MainEvent:FireServer("DropMoney", "10000" )
+     sendNotif("Money dropped!", "$ 1000 dropped!")
+     
+ end
+
 local Connections = {}
 
 local Services = {
@@ -459,13 +479,15 @@ if game.PlaceId == 2788229376 then
                                             .SayMessageRequest:FireServer(unpack(args))
                                     end
 
-                                    local args = {
-                                        [1] = "DropMoney",
-                                        [2] = "10000"
-                                    }
+                                   -- local args = {
+                                   --     [1] = "DropMoney",
+                                   --     [2] = "10000"
+                                   -- }
+--
+                                   -- game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+                                   -- wait(15)
 
-                                    game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
-                                    wait(15)
+                                   dropMoney()
                                 end
                             else
 
@@ -483,12 +505,12 @@ if game.PlaceId == 2788229376 then
 
                             end
 
-                            if finalMsg == getgenv().prefix .. "airlock" then
+                            if finalMsg == getgenv().prefix .. "air" then
                                 putinair(true)
 
                             end
 
-                            if finalMsg == getgenv().prefix .. "stopairlock" then
+                            if finalMsg == getgenv().prefix .. "unair" then
                                 putinair(false)
                             end
                         end

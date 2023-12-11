@@ -157,7 +157,7 @@ if game.PlaceId == 2788229376 then
         print("someone joined the game")
     end)
 
-    local function PlayerAdded(Player)
+   -- local function PlayerAdded(Player)
         local function Chatted(Message)
             local plr = game.Players.LocalPlayer
 
@@ -171,6 +171,8 @@ if game.PlaceId == 2788229376 then
 
                             local controllerId = getgenv().controller -- Replace with the ID of the controller
                             local controller = game:GetService("Players"):GetPlayerByUserId(controllerId)
+
+                            
 
                             for i, v in pairs(getgenv().alts) do
                                 if i == "Alt1" then
@@ -510,7 +512,9 @@ if game.PlaceId == 2788229376 then
         end
         Player.Chatted:Connect(Chatted)
 
-    end
+   -- end
+
+    --Player.Chatted:Connect(Chatted)
 
     
 

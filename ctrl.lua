@@ -163,91 +163,91 @@ if game.PlaceId == 2788229376 then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-389, 21, -338)
-                                        putinair(true)
+                                        
                                     end
                                 end
                                 if i == "Alt2" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-385, 21, -338)
-                                        putinair(true)
+                             
                                     end
                                 end
                                 if i == "Alt3" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-380, 21, -337)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt4" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-376, 21, -338)
-                                        putinair(true)
+                               
                                     end
                                 end
                                 if i == "Alt5" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-370, 21, -338)
-                                        putinair(true)
+                               
                                     end
                                 end
                                 if i == "Alt6" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-366, 21, -338)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt7" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -338)
-                                        putinair(true)
+                                      
                                     end
                                 end
                                 if i == "Alt8" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -333)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt9" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-365, 21, -334)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt10" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-370, 21, -334)
-                                        putinair(true)
+                                    
                                     end
                                 end
                                 if i == "Alt11" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-375, 21, -334)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt12" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-381, 21, -334)
-                                        putinair(true)
+                                      
                                     end
                                 end
                                 if i == "Alt13" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-386, 21, -334)
-                                        putinair(true)
+                                        
 
                                     end
                                 end
@@ -255,42 +255,42 @@ if game.PlaceId == 2788229376 then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -334)
-                                        putinair(true)
+                                  
                                     end
                                 end
                                 if i == "Alt15" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -331)
-                                        putinair(true)
+                                    
                                     end
                                 end
                                 if i == "Alt16" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-386, 21, -331)
-                                        putinair(true)
+                                      
                                     end
                                 end
                                 if i == "Alt17" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-382, 21, -331)
-                                        putinair(true)
+                                     
                                     end
                                 end
                                 if i == "Alt18" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-376, 21, -331)
-                                        putinair(true)
+                                      
                                     end
                                 end
                                 if i == "Alt19" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-371, 21, -331)
-                                        putinair(true)
+                                      
 
                                     end
                                 end
@@ -298,126 +298,124 @@ if game.PlaceId == 2788229376 then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-366, 21, -331)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt21" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -331)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt22" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-361, 21, -327)
-                                        putinair(true)
+                                        
                                     end
                                 end
                                 if i == "Alt23" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-365, 21, -327)
-                                        putinair(true)
+                                     
                                     end
                                 end
                                 if i == "Alt24" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-371, 21, -326)
-                                        putinair(true)
+                                      
                                     end
                                 end
                                 if i == "Alt25" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-376, 21, -327)
-                                        putinair(true)
+                                        
                                     end
                                 end
                                 if i == "Alt26" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-381, 21, -326)
-                                        putinair(true)
+                                        
                                     end
                                 end
                                 if i == "Alt27" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-385, 21, -327)
-                                        putinair(true)
+                                      
                                     end
                                 end
                                 if i == "Alt28" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -323)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt29" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -326)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt30" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-390, 21, -323)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt31" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-385, 21, -323)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt32" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-381, 21, -323)
-                                        putinair(true)
+                                        
                                     end
                                 end
                                 if i == "Alt33" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-375, 21, -324)
-                                        putinair(true)
+                                     
                                     end
                                 end
                                 if i == "Alt34" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-370, 21, -323)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt35" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-365, 21, -324)
-                                        putinair(true)
+                                       
                                     end
                                 end
                                 if i == "Alt36" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-360, 21, -324)
-                                        putinair(true)
                                     end
                                 end
                                 if i == "Alt37" then
                                     if v == plr.UserId then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-359, 21, -318)
-                                        putinair(true)
                                     end
                                 end
                                 if i == "Alt38" then
@@ -425,9 +423,11 @@ if game.PlaceId == 2788229376 then
                                         game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
                                             CFrame.new(-364, 21, -319)
 
-                                        putinair(true)
+                                        
                                     end
                                 end
+
+                                putinair(true)
                             end
                         end
 

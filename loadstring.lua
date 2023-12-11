@@ -10,5 +10,5 @@ getgenv().alts = { -- Max 38 alts! (enter user ids where the 0 is)
 -- loader
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Officialtomdev/kobealtctrl/main/qqq.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Officialtomdev/kobealtctrl/main/QD.lua", true))()
 

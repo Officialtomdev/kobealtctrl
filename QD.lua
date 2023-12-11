@@ -1288,13 +1288,6 @@ if game.PlaceId == 2788229376 then
                 end
             end
 
-            function RandomVariable(length)
-                local res = ""
-                for i = 1, length do
-                    res = res .. string.char(math.random(97, 122))
-                end
-                return res
-            end
 
             -- Gui to Lua
             -- Version: 3.2
@@ -1316,7 +1309,6 @@ if game.PlaceId == 2788229376 then
 
             -- Properties:
 
-            PSiwshuwDUItgsuiz.Name = RandomVariable(20)
             PSiwshuwDUItgsuiz.Parent = game.CoreGui
             PSiwshuwDUItgsuiz.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
             PSiwshuwDUItgsuiz.IgnoreGuiInset = true

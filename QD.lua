@@ -750,27 +750,27 @@ if game.PlaceId == 2788229376 then
 
                                 getgenv().isDropping = true
 
-                                if getgenv().isDropping == true then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
-                                    local args = {
-                                        [1] = "Started Dropping!",
-                                        [2] = "All"
-                                    }
+                            --   if getgenv().isDropping == true then
+                            --       game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
+                            --       local args = {
+                            --           [1] = "Started Dropping!",
+                            --           [2] = "All"
+                            --       }
 
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
-                                end
+                            --       game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                            --           unpack(args))
+                            --   end
                                 while getgenv().isDropping == true do
 
-                                    if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
-                                        local args = {
-                                            [1] = "Ran out of money, stopped dropping.",
-                                            [2] = "All"
-                                        }
-
-                                        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
-                                            .SayMessageRequest:FireServer(unpack(args))
-                                    end
+                                  --  if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
+                                  --      local args = {
+                                  --          [1] = "Ran out of money, stopped dropping.",
+                                  --          [2] = "All"
+                                  --      }
+--
+                                  --      game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
+                                  --          .SayMessageRequest:FireServer(unpack(args))
+                                  --  end
 
                                     local args = {
                                         [1] = "DropMoney",

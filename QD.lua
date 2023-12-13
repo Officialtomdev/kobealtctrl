@@ -750,34 +750,49 @@ if game.PlaceId == 2788229376 then
 
                                 getgenv().isDropping = true
 
-                            --   if getgenv().isDropping == true then
-                            --       game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
-                            --       local args = {
-                            --           [1] = "Started Dropping!",
-                            --           [2] = "All"
-                            --       }
+                                --   if getgenv().isDropping == true then
+                                --       game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
+                                --       local args = {
+                                --           [1] = "Started Dropping!",
+                                --           [2] = "All"
+                                --       }
 
-                            --       game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                            --           unpack(args))
-                            --   end
+                                --       game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                --           unpack(args))
+                                --   end
                                 while getgenv().isDropping == true do
 
-                                  --  if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
-                                  --      local args = {
-                                  --          [1] = "Ran out of money, stopped dropping.",
-                                  --          [2] = "All"
-                                  --      }
---
-                                  --      game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
-                                  --          .SayMessageRequest:FireServer(unpack(args))
-                                  --  end
+                                    --  if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
+                                    --      local args = {
+                                    --          [1] = "Ran out of money, stopped dropping.",
+                                    --          [2] = "All"
+                                    --      }
+                                    --
+                                    --      game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
+                                    --          .SayMessageRequest:FireServer(unpack(args))
+                                    --  end
 
                                     local args = {
                                         [1] = "DropMoney",
                                         [2] = "10000"
                                     }
 
-                                    game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+                                    local success, result = pcall(function()
+                                        return game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+                                    end)
+
+                                    if success then
+                                        if result ~= nil then
+                                            print("FireServer executed successfully with a non-nil result:", result)
+                                        else
+                                            print("FireServer executed successfully but returned nil.")
+                                            -- Add further checks or handling here if needed
+                                        end
+                                    else
+                                        warn("An error occurred when calling FireServer:", result)
+                                        -- Further error handling, if required
+                                    end
+
                                     wait(15)
                                 end
                             else
@@ -1069,8 +1084,6 @@ if game.PlaceId == 2788229376 then
                             humanoid.Health = 0
                         end
 
-
-
                         if finalMsg == getgenv().prefix .. "kill " .. plr.Name:lower() then
                             humanoid.Health = 0
                         end
@@ -1287,7 +1300,6 @@ if game.PlaceId == 2788229376 then
                     e.Enabled = false
                 end
             end
-
 
             -- Gui to Lua
             -- Version: 3.2

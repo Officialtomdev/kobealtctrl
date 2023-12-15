@@ -122,13 +122,7 @@ if game.PlaceId == 2788229376 then
     end)
 
     getgenv().isDropping = false
-   Players.PlayerAdded:Connect(function(player)
-       game.StarterGui:SetCore("SendNotification", {
-           Title = "Someone joined!",
-           Text = player.name .. " joined the game.",
-           Duration = 5
-       })
-   end)
+   
 
     local function PlayerAdded(Player)
         local function Chatted(Message)

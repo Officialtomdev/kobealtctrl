@@ -1,38 +1,7 @@
 local CmdSettings = {}
 
-function sendNotif(title, text)
-    game.StarterGui:SetCore("SendNotification", {
-        Title = title,
-        Text = text,
-        Duration = 5
-    })
-end
-
-function dropMoney()
-    game:GetService("ReplicatedStorage").MainEvent:FireServer("DropMoney", "10000")
-    sendNotif("Money dropped!", "$ 1000 dropped!")
-
-end
-
-local Connections = {}
-
-local Services = {
-    ["Players"] = game:GetService("Players")
-}
-
-local Variables = {
-    Player = game.Players.LocalPlayer
-}
-
 local function putinair(Type)
     if CmdSettings["AirLock"] == nil and Type == true then
-        print("pulling bro up")
-        print("pulling bro up")
-        print("pulling bro up")
-        print("pulling bro up")
-        print("pulling bro up")
-        print("pulling bro up")
-        print("pulling bro up")
         local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
         if BP then
             BP:Destroy()
@@ -45,12 +14,6 @@ local function putinair(Type)
         BP.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
         BP.Position = Variables["Player"].Character.HumanoidRootPart.Position
     elseif CmdSettings["AirLock"] == true and Type == false then
-        print("pulling bro down")
-        print("pulling bro down")
-        print("pulling bro down")
-        print("pulling bro down")
-        print("pulling bro down")
-        print("pulling bro down")
         CmdSettings["AirLock"] = nil
         local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
         if BP then
@@ -58,6 +21,16 @@ local function putinair(Type)
         end
     end
 end
+
+local Connections = {}
+
+local Services = {
+    ["Players"] = game:GetService("Players")
+}
+
+local Variables = {
+    Player = game.Players.LocalPlayer
+}
 
 if not game:IsLoaded() then
     repeat
@@ -451,8 +424,6 @@ if game.PlaceId == 2788229376 then
 
                         end
 
-
-
                         if finalMsg == getgenv().prefix .. "money?" then
 
                             game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
@@ -461,7 +432,13 @@ if game.PlaceId == 2788229376 then
 
                         end
 
+                        if finalMsg == getgenv().prefix .. "airlock" then
+                            putinair(true)
+                        end
 
+                        if finalMsg == getgenv().prefix .. "stopairlock" then
+                            putinair(false)
+                        end
 
                     end
                 end

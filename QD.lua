@@ -113,7 +113,9 @@ __newindex = hookmetamethod(game, "__newindex", function(t, k, v)
 end)
 
 if game.PlaceId == 2788229376 then
+    local Players = game:GetService('Players')
     getgenv().adverting = false
+    getgenv().isDropping = false
     local vu = game:GetService("VirtualUser")
     game:GetService("Players").LocalPlayer.Idled:connect(function()
         vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
@@ -121,8 +123,14 @@ if game.PlaceId == 2788229376 then
         vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
     end)
 
-    getgenv().isDropping = false
-   
+    
+   Players.PlayerAdded:Connect(function(player)
+       game.StarterGui:SetCore("SendNotification", {
+           Title = "Someone joined!",
+           Text = player.name .. " joined the game.",
+           Duration = 5
+       })
+   end)
 
     local function PlayerAdded(Player)
         local function Chatted(Message)

@@ -1,5 +1,27 @@
 local CmdSettings = {}
 
+
+
+
+
+
+local Connections = {}
+
+local Services = {
+    ["Players"] = game:GetService("Players")
+}
+
+local Variables = {
+    Player = game.Players.LocalPlayer
+}
+
+if not game:IsLoaded() then
+    repeat
+        wait()
+    until game:IsLoaded()
+end
+
+
 local function putinair(Type)
     if CmdSettings["AirLock"] == nil and Type == true then
         local BP = Variables["Player"].Character.HumanoidRootPart:FindFirstChild("AirLockBP")
@@ -20,22 +42,6 @@ local function putinair(Type)
             BP:Destroy()
         end
     end
-end
-
-local Connections = {}
-
-local Services = {
-    ["Players"] = game:GetService("Players")
-}
-
-local Variables = {
-    Player = game.Players.LocalPlayer
-}
-
-if not game:IsLoaded() then
-    repeat
-        wait()
-    until game:IsLoaded()
 end
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -116,13 +122,13 @@ if game.PlaceId == 2788229376 then
     end)
 
     getgenv().isDropping = false
-   -- Players.PlayerAdded:Connect(function(player)
-   --     game.StarterGui:SetCore("SendNotification", {
-   --         Title = "Someone joined!",
-   --         Text = player.name .. " joined the game.",
-   --         Duration = 5
-   --     })
-   -- end)
+   Players.PlayerAdded:Connect(function(player)
+       game.StarterGui:SetCore("SendNotification", {
+           Title = "Someone joined!",
+           Text = player.name .. " joined the game.",
+           Duration = 5
+       })
+   end)
 
     local function PlayerAdded(Player)
         local function Chatted(Message)

@@ -143,112 +143,6 @@ if game.PlaceId == 2788229376 then
     end)
 
     getgenv().isDropping = false
-    local speed = 50
-    local c
-    local h
-    local bv
-    local bav
-    local cam
-    local flying
-    local p = game.Players.LocalPlayer
-    local buttons = {
-        W = false,
-        S = false,
-        A = false,
-        D = false,
-        Moving = false
-    }
-
-    local startFly = function()
-        if not p.Character or not p.Character.Head or flying then
-            return
-        end
-        c = p.Character
-        h = c.Humanoid
-        h.PlatformStand = true
-        cam = workspace:WaitForChild('Camera')
-        bv = Instance.new("BodyVelocity")
-        bav = Instance.new("BodyAngularVelocity")
-        bv.Velocity, bv.MaxForce, bv.P = Vector3.new(0, 0, 0), Vector3.new(10000, 10000, 10000), 1000
-        bav.AngularVelocity, bav.MaxTorque, bav.P = Vector3.new(0, 0, 0), Vector3.new(10000, 10000, 10000), 1000
-        bv.Parent = c.Head
-        bav.Parent = c.Head
-        flying = true
-        h.Died:connect(function()
-            flying = false
-        end)
-    end
-
-    local Players = game:GetService('Players')
-
-    local endFly = function()
-        if not p.Character or not flying then
-            return
-        end
-        h.PlatformStand = false
-        bv:Destroy()
-        bav:Destroy()
-        flying = false
-    end
-
-    game:GetService("UserInputService").InputBegan:connect(function(input, GPE)
-        if GPE then
-            return
-        end
-        for i, e in pairs(buttons) do
-            if i ~= "Moving" and input.KeyCode == Enum.KeyCode[i] then
-                buttons[i] = true
-                buttons.Moving = true
-            end
-        end
-    end)
-
-    game:GetService("UserInputService").InputEnded:connect(function(input, GPE)
-        if GPE then
-            return
-        end
-        local a = false
-        for i, e in pairs(buttons) do
-            if i ~= "Moving" then
-                if input.KeyCode == Enum.KeyCode[i] then
-                    buttons[i] = false
-                end
-                if buttons[i] then
-                    a = true
-                end
-            end
-        end
-        buttons.Moving = a
-    end)
-
-    local setVec = function(vec)
-        return vec * (speed / vec.Magnitude)
-    end
-
-    game:GetService("RunService").Heartbeat:connect(function(step)
-        if flying and c and c.PrimaryPart then
-            local p = c.PrimaryPart.Position
-            local cf = cam.CFrame
-            local ax, ay, az = cf:toEulerAnglesXYZ()
-            c:SetPrimaryPartCFrame(CFrame.new(p.x, p.y, p.z) * CFrame.Angles(ax, ay, az))
-            if buttons.Moving then
-                local t = Vector3.new()
-                if buttons.W then
-                    t = t + (setVec(cf.lookVector))
-                end
-                if buttons.S then
-                    t = t - (setVec(cf.lookVector))
-                end
-                if buttons.A then
-                    t = t - (setVec(cf.rightVector))
-                end
-                if buttons.D then
-                    t = t + (setVec(cf.rightVector))
-                end
-                c:TranslateBy(t * step)
-            end
-        end
-    end)
     Players.PlayerAdded:Connect(function(player)
         game.StarterGui:SetCore("SendNotification", {
             Title = "Someone joined!",
@@ -542,32 +436,6 @@ if game.PlaceId == 2788229376 then
 
                         end
 
-                        if finalMsg == getgenv().prefix .. "vibe" then
-
-                            game:GetService("Players"):Chat("/e dance2")
-
-                        end
-                        if finalMsg == getgenv().prefix .. "vibe " .. plr.Name:lower() then
-
-                            game:GetService("Players"):Chat("/e dance2")
-
-                        end
-
-                        if finalMsg == getgenv().prefix .. "wallet " .. plr.Name:lower() then
-                            for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                                if v.name == "Wallet" then
-                                    v.Parent = game.Players.LocalPlayer.Character
-                                else
-                                    local localPlayer = game.Players.LocalPlayer
-                                    local humanoid = localPlayer.Character:FindFirstChildOfClass("Humanoid")
-                                    if humanoid then
-                                        humanoid:UnequipTools()
-                                    end
-                                end
-                            end
-
-                        end
-
                         if finalMsg == getgenv().prefix .. "wallet" then
                             for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                                 if v.name == "Wallet" then
@@ -583,23 +451,7 @@ if game.PlaceId == 2788229376 then
 
                         end
 
-                        if finalMsg == getgenv().prefix .. "setspot" then
-                            lgame.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                "set spot successfullu", 'All')
-                            local Players = game:GetService("Players")
-                            local function getPlayerByUserId(userId)
-                                for _, player in pairs(Players:GetPlayers()) do
-                                    if player.UserId == userId then
-                                        return player
-                                    end
-                                end
-                            end
 
-                            local plrrlrllr = getPlayerByUserId(getgenv().controller)
-
-                            getgenv().poss = plrrlrllr.Character.HumanoidRootPart.Position
-
-                        end
 
                         if finalMsg == getgenv().prefix .. "money?" then
 
@@ -608,53 +460,8 @@ if game.PlaceId == 2788229376 then
                                     game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.MoneyText.Text, 'All')
 
                         end
-                        if finalMsg == getgenv().prefix .. "tospot" then
 
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
-                                getgenv().poss)
-                            wait(0.5)
-                            game.Players.LocalPlayer.Character.Head.Anchored = true
 
-                        end
-
-                        --       if finalMsg == getgenv().prefix .. "bringalts" then
-                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
-                        --           PlayerHumanoid.RootPart.CFrame = LastTargetPosition + LastTargetPosition.LookVector * Length
-                        --           PlayerHumanoid.RootPart.CFrame =
-                        --               CFrame.new(PlayerHumanoid.RootPart.CFrame.Position, Vector3.new(
-                        --                   LastTargetPosition.Position.X, PlayerHumanoid.RootPart.CFrame.Position.Y,
-                        --                   LastTargetPosition.Position.Z))
-                        --       end
-
-                        --       if finalMsg == getgenv().prefix .. "bring " .. plr.Name:lower() then
-                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
-                        --           PlayerHumanoid.RootPart.CFrame = LastTargetPosition + LastTargetPosition.LookVector * Length
-                        --           PlayerHumanoid.RootPart.CFrame =
-                        --               CFrame.new(PlayerHumanoid.RootPart.CFrame.Position, Vector3.new(
-                        --                   LastTargetPosition.Position.X, PlayerHumanoid.RootPart.CFrame.Position.Y,
-                        --                   LastTargetPosition.Position.Z))
-                        --       end
-
-                        --       if finalMsg == getgenv().prefix .. "freeze" then
-
-                        --           game.Players.LocalPlayer.Character.Head.Anchored = true
-
-                        --       end
-
-                        --       if finalMsg == getgenv().prefix .. "freeze " .. plr.Name:lower() then
-
-                        --           game.Players.LocalPlayer.Character.Head.Anchored = true
-
-                        --       end
-                        --       if finalMsg == getgenv().prefix .. "unfreeze" then
-
-                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
-
-                        --       end
-                        --       if finalMsg == getgenv().prefix .. "unfreeze " .. plr.Name:lower() then
-
-                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
 
                     end
                 end

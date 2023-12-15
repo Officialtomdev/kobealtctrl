@@ -65,6 +65,11 @@ if not game:IsLoaded() then
     until game:IsLoaded()
 end
 
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- // Vars
+local tablefind = table.find
+local MainEvent = ReplicatedStorage.MainEvent
 local SpoofTable = {
     WalkSpeed = 16,
     JumpPower = 50
@@ -83,7 +88,7 @@ __namecall = hookmetamethod(game, "__namecall", function(...)
     local caller = getcallingscript()
 
     -- // See if the game is trying to alert the server
-    if (method == "FireServer" and tablefind(Flags, args[2])) then
+    if (method == "FireServer" and self == MainEvent and tablefind(Flags, args[2])) then
         return
     end
 
@@ -268,247 +273,6 @@ if game.PlaceId == 2788229376 then
 
                 for i, v in pairs(getgenv().alts) do
                     if v == plr.UserId then
-                        if finalMsg == getgenv().prefix .. "fly " .. plr.Name:lower() then
-                            startFly()
-
-                        end
-                        if finalMsg == getgenv().prefix .. "fly" then
-                            startFly()
-
-                        end
-                        if finalMsg == getgenv().prefix .. "setup admin" then
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            for i, v in pairs(getgenv().alts) do
-                                if i == "Alt1" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-883, -38, -623)
-                                    end
-                                end
-                                if i == "Alt2" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-878, -38, -623)
-                                    end
-                                end
-                                if i == "Alt3" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-873, -38, -623)
-                                    end
-                                end
-                                if i == "Alt4" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-868, -38, -624)
-                                    end
-                                end
-                                if i == "Alt5" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-862, -38, -624)
-                                    end
-                                end
-                                if i == "Alt6" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-857, -38, -624)
-                                    end
-                                end
-                                if i == "Alt7" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-857, -38, -618)
-                                    end
-                                end
-                                if i == "Alt8" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-862, -38, -618)
-                                    end
-                                end
-                                if i == "Alt9" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-867, -38, -618)
-                                    end
-                                end
-                                if i == "Alt10" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-872, -38, -618)
-                                    end
-                                end
-                                if i == "Alt11" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-877, -38, -618)
-                                    end
-                                end
-                                if i == "Alt12" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-882, -38, -618)
-                                    end
-                                end
-                                if i == "Alt13" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-882, -38, -612)
-                                    end
-                                end
-                                if i == "Alt14" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-878, -38, -611)
-                                    end
-                                end
-                                if i == "Alt15" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-872, -38, -611)
-                                    end
-                                end
-                                if i == "Alt16" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-867, -38, -612)
-                                    end
-                                end
-                                if i == "Alt17" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-861, -38, -612)
-                                    end
-                                end
-                                if i == "Alt18" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-861, -38, -607)
-                                    end
-                                end
-                                if i == "Alt19" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-867, -38, -607)
-                                    end
-                                end
-                                if i == "Alt20" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-872, -38, -607)
-                                    end
-                                end
-                                if i == "Alt21" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-878, -38, -608)
-                                    end
-                                end
-                                if i == "Alt22" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-883, -38, -608)
-                                    end
-                                end
-                                if i == "Alt23" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-883, -38, -603)
-                                    end
-                                end
-                                if i == "Alt24" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-878, -38, -603)
-                                    end
-                                end
-                                if i == "Alt25" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-873, -38, -602)
-                                    end
-                                end
-                                if i == "Alt26" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-867, -38, -602)
-                                    end
-                                end
-                                if i == "Alt27" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-861, -38, -602)
-                                    end
-                                end
-                                if i == "Alt28" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-862, -38, -598)
-                                    end
-                                end
-                                if i == "Alt29" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-867, -38, -598)
-                                    end
-                                end
-                                if i == "Alt30" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-872, -38, -598)
-                                    end
-                                end
-                                if i == "Alt31" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-878, -38, -599)
-                                    end
-                                end
-                                if i == "Alt32" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-884, -38, -599)
-                                    end
-                                end
-                                if i == "Alt33" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-884, -38, -594)
-                                    end
-                                end
-                                if i == "Alt34" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-880, -38, -594)
-                                    end
-                                end
-                                if i == "Alt35" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-874, -38, -594)
-                                    end
-                                end
-                                if i == "Alt36" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-869, -38, -594)
-                                    end
-                                end
-                                if i == "Alt37" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-864, -38, -594)
-                                    end
-                                end
-                                if i == "Alt38" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-858, -38, -594)
-                                    end
-                                end
-                            end
-                        end
 
                         if finalMsg == getgenv().prefix .. "setup bank" then
                             game.Players.LocalPlayer.Character.Head.Anchored = false
@@ -750,170 +514,29 @@ if game.PlaceId == 2788229376 then
 
                                 getgenv().isDropping = true
 
-                                --   if getgenv().isDropping == true then
-                                --       game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
-                                --       local args = {
-                                --           [1] = "Started Dropping!",
-                                --           [2] = "All"
-                                --       }
-
-                                --       game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                --           unpack(args))
-                                --   end
-                                while getgenv().isDropping == true do
-
-                                    --  if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
-                                    --      local args = {
-                                    --          [1] = "Ran out of money, stopped dropping.",
-                                    --          [2] = "All"
-                                    --      }
-                                    --
-                                    --      game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
-                                    --          .SayMessageRequest:FireServer(unpack(args))
-                                    --  end
-
-                                    local args = {
-                                        [1] = "DropMoney",
-                                        [2] = "10000"
-                                    }
-
-                                    local success, result = pcall(function()
-                                        return game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
-                                    end)
-
-                                    if success then
-                                        if result ~= nil then
-                                            print("FireServer executed successfully with a non-nil result:", result)
-                                        else
-                                            print("FireServer executed successfully but returned nil.")
-                                            -- Add further checks or handling here if needed
-                                        end
-                                    else
-                                        warn("An error occurred when calling FireServer:", result)
-                                        -- Further error handling, if required
-                                    end
-
-                                    wait(15)
-                                end
-                            else
-
-                                getgenv().isDropping = false
-                                if getgenv().isDropping == false then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(false, 102, false, yomama)
-                                    local args = {
-                                        [1] = "Stopped Dropping!",
-                                        [2] = "All"
-                                    }
-
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
-                                end
-
-                            end
-
-                        end
-
-                        if finalMsg == getgenv().prefix .. "drop " .. plr.Name:lower() then
-
-                            if getgenv().isDropping == false then
-
-                                getgenv().isDropping = true
-
                                 if getgenv().isDropping == true then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(true, 102, false, yomama)
-                                    local args = {
-                                        [1] = "Started Dropping!",
-                                        [2] = "All"
-                                    }
 
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
+                                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                        "Started Dropping!", 'All')
                                 end
                                 while getgenv().isDropping == true do
 
                                     if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
-                                        local args = {
-                                            [1] = "Ran out of money, stopped dropping.",
-                                            [2] = "All"
-                                        }
-
-                                        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
-                                            .SayMessageRequest:FireServer(unpack(args))
+                                        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                            "Ran out of money, stopped dropping.", 'All')
                                     end
 
-                                    local args = {
-                                        [1] = "DropMoney",
-                                        [2] = "10000"
-                                    }
+                                    game.ReplicatedStorage.MainEvent:FireServer("DropMoney", 10000)
 
-                                    game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
                                     wait(15)
                                 end
                             else
 
                                 getgenv().isDropping = false
                                 if getgenv().isDropping == false then
-                                    game:GetService("VirtualInputManager"):SendKeyEvent(false, 102, false, yomama)
-                                    local args = {
-                                        [1] = "Stopped Dropping!",
-                                        [2] = "All"
-                                    }
-
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
+                                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                        "Started Dropping!", 'All')
                                 end
-
-                            end
-
-                        end
-
-                        if finalMsg == getgenv().prefix .. "advert" then
-
-                            if getgenv().adverting == false then
-
-                                getgenv().adverting = true
-
-                                while getgenv().adverting == true do
-
-                                    local args = {
-                                        [1] = getgenv().adMessage,
-                                        [2] = "All"
-                                    }
-
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
-                                    wait(getgenv().adMessageCooldown)
-
-                                end
-                            else
-
-                                getgenv().adverting = false
-
-                            end
-
-                        end
-
-                        if finalMsg == getgenv().prefix .. "advert " .. plr.Name:lower() then
-
-                            if getgenv().adverting == false then
-
-                                getgenv().adverting = true
-
-                                while getgenv().adverting == true do
-
-                                    local args = {
-                                        [1] = getgenv().adMessage,
-                                        [2] = "All"
-                                    }
-
-                                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        unpack(args))
-                                    wait(getgenv().adMessageCooldown)
-
-                                end
-                            else
-
-                                getgenv().adverting = false
 
                             end
 
@@ -960,36 +583,9 @@ if game.PlaceId == 2788229376 then
 
                         end
 
-                        if finalMsg == getgenv().prefix .. "setspot " .. plr.Name:lower() then
-                            local args = {
-                                [1] = "Set spot successfully!",
-                                [2] = "All"
-                            }
-
-                            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                unpack(args))
-                            local Players = game:GetService("Players")
-                            local function getPlayerByUserId(userId)
-                                for _, player in pairs(Players:GetPlayers()) do
-                                    if player.UserId == userId then
-                                        return player
-                                    end
-                                end
-                            end
-
-                            local plrrlrllr = getPlayerByUserId(getgenv().controller)
-
-                            getgenv().poss = plrrlrllr.Character.HumanoidRootPart.Position
-
-                        end
                         if finalMsg == getgenv().prefix .. "setspot" then
-                            local args = {
-                                [1] = "Set spot successfully!",
-                                [2] = "All"
-                            }
-
-                            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                unpack(args))
+                            lgame.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                "set spot successfullu", 'All')
                             local Players = game:GetService("Players")
                             local function getPlayerByUserId(userId)
                                 for _, player in pairs(Players:GetPlayers()) do
@@ -1002,41 +598,14 @@ if game.PlaceId == 2788229376 then
                             local plrrlrllr = getPlayerByUserId(getgenv().controller)
 
                             getgenv().poss = plrrlrllr.Character.HumanoidRootPart.Position
-
-                        end
-
-                        if finalMsg == getgenv().prefix .. "money? " .. plr.Name:lower() then
-
-                            local args = {
-                                [1] = "I have " ..
-                                    game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.MoneyText.Text,
-                                [2] = "All"
-                            }
-
-                            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                unpack(args))
 
                         end
 
                         if finalMsg == getgenv().prefix .. "money?" then
 
-                            local args = {
-                                [1] = "I have " ..
-                                    game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.MoneyText.Text,
-                                [2] = "All"
-                            }
-
-                            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                unpack(args))
-
-                        end
-                        if finalMsg == getgenv().prefix .. "tospot " .. plr.Name:lower() then
-
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(
-                                getgenv().poss)
-                            wait(0.5)
-                            game.Players.LocalPlayer.Character.Head.Anchored = true
+                            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                                "I have " ..
+                                    game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.MoneyText.Text, 'All')
 
                         end
                         if finalMsg == getgenv().prefix .. "tospot" then
@@ -1048,92 +617,45 @@ if game.PlaceId == 2788229376 then
                             game.Players.LocalPlayer.Character.Head.Anchored = true
 
                         end
-                        if finalMsg == getgenv().prefix .. "unfly" then
-                            endFly()
-                        end
-                        if finalMsg == getgenv().prefix .. "unfly " .. plr.Name:lower() then
-                            endFly()
-                        end
-                        if finalMsg == getgenv().prefix .. "airlock " .. plr.Name:lower() then
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            local player = game.Players.LocalPlayer
-                            local character = player.Character
-                            local humanoid = character:FindFirstChild("Humanoid")
-                            local LPlr = game.Players.LocalPlayer
-                            local Character = LPlr.Character
-                            local HRP = Character:WaitForChild("HumanoidRootPart")
-                            humanoid.Jump = true
-                            wait(0.3)
-                            game.Players.LocalPlayer.Character.Head.Anchored = true
 
-                        end
-                        if finalMsg == getgenv().prefix .. "airlock" then
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            local player = game.Players.LocalPlayer
-                            local character = player.Character
-                            local humanoid = character:FindFirstChild("Humanoid")
-                            local LPlr = game.Players.LocalPlayer
-                            local Character = LPlr.Character
-                            local HRP = Character:WaitForChild("HumanoidRootPart")
-                            humanoid.Jump = true
-                            wait(0.3)
-                            game.Players.LocalPlayer.Character.Head.Anchored = true
+                        --       if finalMsg == getgenv().prefix .. "bringalts" then
+                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
+                        --           PlayerHumanoid.RootPart.CFrame = LastTargetPosition + LastTargetPosition.LookVector * Length
+                        --           PlayerHumanoid.RootPart.CFrame =
+                        --               CFrame.new(PlayerHumanoid.RootPart.CFrame.Position, Vector3.new(
+                        --                   LastTargetPosition.Position.X, PlayerHumanoid.RootPart.CFrame.Position.Y,
+                        --                   LastTargetPosition.Position.Z))
+                        --       end
 
-                        end
-                        if finalMsg == getgenv().prefix .. "kill" then
-                            humanoid.Health = 0
-                        end
+                        --       if finalMsg == getgenv().prefix .. "bring " .. plr.Name:lower() then
+                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
+                        --           PlayerHumanoid.RootPart.CFrame = LastTargetPosition + LastTargetPosition.LookVector * Length
+                        --           PlayerHumanoid.RootPart.CFrame =
+                        --               CFrame.new(PlayerHumanoid.RootPart.CFrame.Position, Vector3.new(
+                        --                   LastTargetPosition.Position.X, PlayerHumanoid.RootPart.CFrame.Position.Y,
+                        --                   LastTargetPosition.Position.Z))
+                        --       end
 
-                        if finalMsg == getgenv().prefix .. "kill " .. plr.Name:lower() then
-                            humanoid.Health = 0
-                        end
+                        --       if finalMsg == getgenv().prefix .. "freeze" then
 
-                        if finalMsg == getgenv().prefix .. "kick" then
-                            plr:Kick("You've been kicked by the Controller.")
-                        end
-                        if finalMsg == getgenv().prefix .. "kick " .. plr.Name:lower() then
-                            plr:Kick("You've been kicked by the Controller.")
-                        end
+                        --           game.Players.LocalPlayer.Character.Head.Anchored = true
 
-                        if finalMsg == getgenv().prefix .. "bringalts" then
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            PlayerHumanoid.RootPart.CFrame = LastTargetPosition + LastTargetPosition.LookVector * Length
-                            PlayerHumanoid.RootPart.CFrame =
-                                CFrame.new(PlayerHumanoid.RootPart.CFrame.Position, Vector3.new(
-                                    LastTargetPosition.Position.X, PlayerHumanoid.RootPart.CFrame.Position.Y,
-                                    LastTargetPosition.Position.Z))
-                        end
+                        --       end
 
-                        if finalMsg == getgenv().prefix .. "bring " .. plr.Name:lower() then
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            PlayerHumanoid.RootPart.CFrame = LastTargetPosition + LastTargetPosition.LookVector * Length
-                            PlayerHumanoid.RootPart.CFrame =
-                                CFrame.new(PlayerHumanoid.RootPart.CFrame.Position, Vector3.new(
-                                    LastTargetPosition.Position.X, PlayerHumanoid.RootPart.CFrame.Position.Y,
-                                    LastTargetPosition.Position.Z))
-                        end
+                        --       if finalMsg == getgenv().prefix .. "freeze " .. plr.Name:lower() then
 
-                        if finalMsg == getgenv().prefix .. "freeze" then
+                        --           game.Players.LocalPlayer.Character.Head.Anchored = true
 
-                            game.Players.LocalPlayer.Character.Head.Anchored = true
+                        --       end
+                        --       if finalMsg == getgenv().prefix .. "unfreeze" then
 
-                        end
+                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
 
-                        if finalMsg == getgenv().prefix .. "freeze " .. plr.Name:lower() then
+                        --       end
+                        --       if finalMsg == getgenv().prefix .. "unfreeze " .. plr.Name:lower() then
 
-                            game.Players.LocalPlayer.Character.Head.Anchored = true
+                        --           game.Players.LocalPlayer.Character.Head.Anchored = false
 
-                        end
-                        if finalMsg == getgenv().prefix .. "unfreeze" then
-
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-
-                        end
-                        if finalMsg == getgenv().prefix .. "unfreeze " .. plr.Name:lower() then
-
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-
-                        end
                     end
                 end
 

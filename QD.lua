@@ -410,7 +410,7 @@ if game.PlaceId == 2788229376 then
                                 getgenv().isDropping = false
                                 if getgenv().isDropping == false then
                                     game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        "Started Dropping!", 'All')
+                                        "Stopped Dropping!", 'All')
                                 end
 
                             end
@@ -432,13 +432,6 @@ if game.PlaceId == 2788229376 then
 
                         end
 
-                        if finalMsg == getgenv().prefix .. "money?" then
-
-                            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                "I have " ..
-                                    game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.MoneyText.Text, 'All')
-
-                        end
 
                         if finalMsg == getgenv().prefix .. "airlock" then
                             putinair(true)

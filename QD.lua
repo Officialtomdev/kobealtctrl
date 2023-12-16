@@ -44,6 +44,20 @@ local function putinair(Type)
     end
 end
 
+
+local function ShowWallet()
+    local Player = game.Players.LocalPlayer
+    if Player.Backpack:FindFirstChild("Wallet") then
+        Player.Backpack.Wallet.Parent = game.Players.LocalPlayer.Character
+    end
+end
+local function RemoveWallet()
+    local Player = game.Players.LocalPlayer
+    if Player.Character:FindFirstChild("Wallet") then
+        Player.Character.Wallet.Parent = game.Players.LocalPlayer.Backpack
+    end
+end
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 -- // Vars
@@ -418,18 +432,11 @@ if game.PlaceId == 2788229376 then
                         end
 
                         if finalMsg == getgenv().prefix .. "wallet" then
-                            for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                                if v.name == "Wallet" then
-                                    v.Parent = game.Players.LocalPlayer.Character
-                                else
-                                    local localPlayer = game.Players.LocalPlayer
-                                    local humanoid = localPlayer.Character:FindFirstChildOfClass("Humanoid")
-                                    if humanoid then
-                                        humanoid:UnequipTools()
-                                    end
-                                end
-                            end
+                            ShowWallet()
+                        end
 
+                        if finalMsg == getgenv().prefix .. "stopwallet" then
+                            RemoveWallet()
                         end
 
 

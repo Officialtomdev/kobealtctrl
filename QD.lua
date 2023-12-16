@@ -1,10 +1,5 @@
 local CmdSettings = {}
 
-
-
-
-
-
 local Connections = {}
 
 local Services = {
@@ -20,7 +15,6 @@ if not game:IsLoaded() then
         wait()
     until game:IsLoaded()
 end
-
 
 local function putinair(Type)
     if CmdSettings["AirLock"] == nil and Type == true then
@@ -44,7 +38,6 @@ local function putinair(Type)
     end
 end
 
-
 local function ShowWallet()
     local Player = game.Players.LocalPlayer
     if Player.Backpack:FindFirstChild("Wallet") then
@@ -56,6 +49,235 @@ local function RemoveWallet()
     if Player.Character:FindFirstChild("Wallet") then
         Player.Character.Wallet.Parent = game.Players.LocalPlayer.Backpack
     end
+end
+
+local function stopdrop()
+    getgenv().isDropping = false
+    if getgenv().isDropping == false then
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Stopped Dropping!", 'All')
+    end
+end
+
+local function drop()
+
+    if getgenv().isDropping == false then
+
+        getgenv().isDropping = true
+
+        if getgenv().isDropping == true then
+
+            game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Started Dropping!", 'All')
+        end
+        while getgenv().isDropping == true do
+
+            if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
+                game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+                    "Ran out of money, stopped dropping.", 'All')
+            end
+
+            game.ReplicatedStorage.MainEvent:FireServer("DropMoney", 10000)
+
+            wait(15)
+        end
+
+    end
+end
+
+local function setupbank()
+    game.Players.LocalPlayer.Character.Head.Anchored = false
+    for i, v in pairs(getgenv().alts) do
+        if i == "Alt1" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-389, 21, -338)
+            end
+        end
+        if i == "Alt2" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-385, 21, -338)
+            end
+        end
+        if i == "Alt3" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-380, 21, -337)
+            end
+        end
+        if i == "Alt4" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-376, 21, -338)
+            end
+        end
+        if i == "Alt5" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-370, 21, -338)
+            end
+        end
+        if i == "Alt6" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-366, 21, -338)
+            end
+        end
+        if i == "Alt7" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-361, 21, -338)
+            end
+        end
+        if i == "Alt8" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-361, 21, -333)
+            end
+        end
+        if i == "Alt9" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-365, 21, -334)
+            end
+        end
+        if i == "Alt10" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-370, 21, -334)
+            end
+        end
+        if i == "Alt11" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-375, 21, -334)
+            end
+        end
+        if i == "Alt12" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-381, 21, -334)
+            end
+        end
+        if i == "Alt13" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-386, 21, -334)
+            end
+        end
+        if i == "Alt14" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-390, 21, -334)
+            end
+        end
+        if i == "Alt15" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-390, 21, -331)
+            end
+        end
+        if i == "Alt16" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-386, 21, -331)
+            end
+        end
+        if i == "Alt17" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-382, 21, -331)
+            end
+        end
+        if i == "Alt18" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-376, 21, -331)
+            end
+        end
+        if i == "Alt19" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-371, 21, -331)
+            end
+        end
+        if i == "Alt20" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-366, 21, -331)
+            end
+        end
+        if i == "Alt21" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-361, 21, -331)
+            end
+        end
+        if i == "Alt22" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-361, 21, -327)
+            end
+        end
+        if i == "Alt23" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-365, 21, -327)
+            end
+        end
+        if i == "Alt24" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-371, 21, -326)
+            end
+        end
+        if i == "Alt25" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-376, 21, -327)
+            end
+        end
+        if i == "Alt26" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-381, 21, -326)
+            end
+        end
+        if i == "Alt27" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-385, 21, -327)
+            end
+        end
+        if i == "Alt28" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-390, 21, -323)
+            end
+        end
+        if i == "Alt29" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-390, 21, -326)
+            end
+        end
+        if i == "Alt30" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-390, 21, -323)
+            end
+        end
+        if i == "Alt31" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-385, 21, -323)
+            end
+        end
+        if i == "Alt32" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-381, 21, -323)
+            end
+        end
+        if i == "Alt33" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-375, 21, -324)
+            end
+        end
+        if i == "Alt34" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-370, 21, -323)
+            end
+        end
+        if i == "Alt35" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-365, 21, -324)
+            end
+        end
+        if i == "Alt36" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-360, 21, -324)
+            end
+        end
+        if i == "Alt37" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-359, 21, -318)
+            end
+        end
+        if i == "Alt38" then
+            if v == plr.UserId then
+                game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-364, 21, -319)
+            end
+        end
+    end
+
 end
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -137,14 +359,13 @@ if game.PlaceId == 2788229376 then
         vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
     end)
 
-    
-   Players.PlayerAdded:Connect(function(player)
-       game.StarterGui:SetCore("SendNotification", {
-           Title = "Someone joined!",
-           Text = player.name .. " joined the game.",
-           Duration = 5
-       })
-   end)
+    Players.PlayerAdded:Connect(function(player)
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Someone joined!",
+            Text = player.name .. " joined the game.",
+            Duration = 5
+        })
+    end)
 
     local function PlayerAdded(Player)
         local function Chatted(Message)
@@ -164,271 +385,15 @@ if game.PlaceId == 2788229376 then
                     if v == plr.UserId then
 
                         if finalMsg == getgenv().prefix .. "setup bank" then
-                            game.Players.LocalPlayer.Character.Head.Anchored = false
-                            for i, v in pairs(getgenv().alts) do
-                                if i == "Alt1" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-389, 21, -338)
-                                    end
-                                end
-                                if i == "Alt2" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-385, 21, -338)
-                                    end
-                                end
-                                if i == "Alt3" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-380, 21, -337)
-                                    end
-                                end
-                                if i == "Alt4" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-376, 21, -338)
-                                    end
-                                end
-                                if i == "Alt5" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-370, 21, -338)
-                                    end
-                                end
-                                if i == "Alt6" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-366, 21, -338)
-                                    end
-                                end
-                                if i == "Alt7" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-361, 21, -338)
-                                    end
-                                end
-                                if i == "Alt8" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-361, 21, -333)
-                                    end
-                                end
-                                if i == "Alt9" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-365, 21, -334)
-                                    end
-                                end
-                                if i == "Alt10" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-370, 21, -334)
-                                    end
-                                end
-                                if i == "Alt11" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-375, 21, -334)
-                                    end
-                                end
-                                if i == "Alt12" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-381, 21, -334)
-                                    end
-                                end
-                                if i == "Alt13" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-386, 21, -334)
-                                    end
-                                end
-                                if i == "Alt14" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-390, 21, -334)
-                                    end
-                                end
-                                if i == "Alt15" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-390, 21, -331)
-                                    end
-                                end
-                                if i == "Alt16" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-386, 21, -331)
-                                    end
-                                end
-                                if i == "Alt17" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-382, 21, -331)
-                                    end
-                                end
-                                if i == "Alt18" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-376, 21, -331)
-                                    end
-                                end
-                                if i == "Alt19" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-371, 21, -331)
-                                    end
-                                end
-                                if i == "Alt20" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-366, 21, -331)
-                                    end
-                                end
-                                if i == "Alt21" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-361, 21, -331)
-                                    end
-                                end
-                                if i == "Alt22" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-361, 21, -327)
-                                    end
-                                end
-                                if i == "Alt23" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-365, 21, -327)
-                                    end
-                                end
-                                if i == "Alt24" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-371, 21, -326)
-                                    end
-                                end
-                                if i == "Alt25" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-376, 21, -327)
-                                    end
-                                end
-                                if i == "Alt26" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-381, 21, -326)
-                                    end
-                                end
-                                if i == "Alt27" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-385, 21, -327)
-                                    end
-                                end
-                                if i == "Alt28" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-390, 21, -323)
-                                    end
-                                end
-                                if i == "Alt29" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-390, 21, -326)
-                                    end
-                                end
-                                if i == "Alt30" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-390, 21, -323)
-                                    end
-                                end
-                                if i == "Alt31" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-385, 21, -323)
-                                    end
-                                end
-                                if i == "Alt32" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-381, 21, -323)
-                                    end
-                                end
-                                if i == "Alt33" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-375, 21, -324)
-                                    end
-                                end
-                                if i == "Alt34" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-370, 21, -323)
-                                    end
-                                end
-                                if i == "Alt35" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-365, 21, -324)
-                                    end
-                                end
-                                if i == "Alt36" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-360, 21, -324)
-                                    end
-                                end
-                                if i == "Alt37" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-359, 21, -318)
-                                    end
-                                end
-                                if i == "Alt38" then
-                                    if v == plr.UserId then
-                                        game:service 'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                                            CFrame.new(-364, 21, -319)
-                                    end
-                                end
-                            end
+                            setupbank()
                         end
 
                         if finalMsg == getgenv().prefix .. "drop" then
+                            drop()
+                        end
 
-                            if getgenv().isDropping == false then
-
-                                getgenv().isDropping = true
-
-                                if getgenv().isDropping == true then
-
-                                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        "Started Dropping!", 'All')
-                                end
-                                while getgenv().isDropping == true do
-
-                                    if game:GetService("Players").LocalPlayer.DataFolder.Currency.Value < 10000 then
-                                        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                            "Ran out of money, stopped dropping.", 'All')
-                                    end
-
-                                    game.ReplicatedStorage.MainEvent:FireServer("DropMoney", 10000)
-
-                                    wait(15)
-                                end
-                            else
-
-                                getgenv().isDropping = false
-                                if getgenv().isDropping == false then
-                                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
-                                        "Stopped Dropping!", 'All')
-                                end
-
-                            end
-
+                        if finalMsg == getgenv().prefix .. "stop" then
+                            stopdrop()
                         end
 
                         if finalMsg == getgenv().prefix .. "wallet" then
@@ -438,7 +403,6 @@ if game.PlaceId == 2788229376 then
                         if finalMsg == getgenv().prefix .. "stopwallet" then
                             RemoveWallet()
                         end
-
 
                         if finalMsg == getgenv().prefix .. "airlock" then
                             putinair(true)
@@ -671,3 +635,4 @@ if game.PlaceId == 2788229376 then
 else
     game.Players.LocalPlayer:Kick("Only da hood.")
 end
+
